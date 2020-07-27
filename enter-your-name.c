@@ -9,7 +9,7 @@
 //Morse code of name
 //Braille code of name
 
-void prime_check(int);
+void prime_check(int sum);
 int main()
 { printf("Enter Your Name:");
   char* name=(char*)malloc(sizeof(char)*1024);
@@ -35,10 +35,11 @@ int main()
 void prime_check(int sum)
 {
     int flag=0;
-    for(int i=2;i<=sum;i++)
+    for(int i=2;i<sum;i++)
         {
             if(sum%i==0)
-                flag++;
+                {flag++;
+                }
         }
     if(sum==1)
         printf("You are neither Prime nor Non Prime\n");
