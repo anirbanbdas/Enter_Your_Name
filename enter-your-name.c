@@ -1,73 +1,60 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include "small_functions.c"
 #include "permutation.c"
-//Basic
+#include "morse.c"
+#include "braille.c"
 
 //Number Of Characters
+//Reverse of name
 //Calculate the summation
 //Check for prime
-
-//Will be asked by the user
-
 //Number of Possible Permutations
-//Permutation of name
-//Morse code of name
-//Braille code of name
-
-
-void prime_check(int sum)
-{
-    int flag=0;
-    for(int i=2;i<sum;i++)
-        {
-            if(sum%i==0)
-                {flag++;
-                }
-        }
-    if(sum==1)
-        printf("You are neither Prime nor Non Prime\n");
-    else
-    {
-        if(flag==0)
-            printf("You are Prime\n");
-        else
-            printf("You are Non Prime\n");
-    }
-}
+//Permutation of name(user)
+//Morse code of name(user)
+//Braille code of name(user)
 
 int main()
-{ printf("Enter Your Name:");
+{ char loop_c;
+  do
+  {printf("Enter Your Name:");
   char* name=(char*)malloc(sizeof(char)*1024);
   scanf("%s",name);
   printf("The number of letters in your name is:%d\n",strlen(name));
-    int i=0;
-    int sum=0;
-    while(name[i]!='\0')
-    {
-        for(int j=97;j<=122;j++)
-           {
-             if(name[i]==j || name[i]==(j-32))
-                  sum=sum+(j-96);
-           }
-        i++;
-    }
 
-   printf("The summation is %d\n",sum);
-   prime_check(sum);
+  printf("The reverse of your name is:%s\n",strrev(name));
+   printf("The summation is %d\n",summation(name));
+   prime_check(summation(name));
+
    printf("Do you want to know the possible permutation of your name(Y/N):");
-   char que_one;
-   scanf("%c",&que_one);
-   if (que_one=='Y' || que_one=='y')
-    {  int n=strlen(name);
+   char que1;
+   scanf("%c",&que1);
+   if (que1=='Y' || que1=='y')
+    {  int n=strlen(name),i=1;
         char* name_cpy=(char*)malloc(1024*sizeof(char));
         strcpy(name_cpy,name);
         strlwr(name_cpy);
        do
        {
-         printf("%s\n",name_cpy);
+         printf("%d.%s\n",i,name_cpy);
+         i++;
        }while(next_permutation(n,name_cpy));
     }
+
+    printf("Do want to know the morse code of your name(Y/N):");
+    char que2;
+    scanf("%c",&que2);
+    if(que2=='Y' || que2=='y'){morse(name);}
+
+    printf("Do want to know the braille code of your name(Y/N):");
+    char que3;
+    scanf("%c",&que3);
+    if(que3=='Y' || que3=='y'){braille(name);}
+
+    printf("Do you Want to enter another name(Y/N):");
+    scanf("%c",&loop_c);
+   }while(loop_c!='N' || loop_c!='n');
 
    return 0;
 }
