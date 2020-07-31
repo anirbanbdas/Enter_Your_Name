@@ -1,3 +1,7 @@
+//int summation(char* )
+//void prime_check(int)
+//int factorial(int)
+
 int summation(char* name)
 {
    int i=0;
