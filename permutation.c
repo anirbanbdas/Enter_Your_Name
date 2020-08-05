@@ -26,13 +26,13 @@ int next_permutation(int n, char *s){
 }
 void per(char* name)
 {
-      int n=strlen(name),i=1;
+        int n=strlen(name),i=1;
         char* name_cpy=(char*)malloc(100*sizeof(char));
         strcpy(name_cpy,name);
         strlwr(name_cpy);
        do
        {
-         printf("%d.%s\n",i,name_cpy);
+         printf("%d.%s\n",i,first_L(name_cpy));
          i++;
        }while(next_permutation(n,name_cpy));
 }

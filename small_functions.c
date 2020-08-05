@@ -1,6 +1,7 @@
 //int summation(char* )
 //void prime_check(int)
 //int factorial(int)
+//first_L(char*)
 
 int summation(char* name)
 {
@@ -42,6 +43,28 @@ int factorial(int n)
         return 1;
     else
         return n*factorial(n-1);
+}
+char* first_L(char* name)
+{   char*p=(char*)malloc(sizeof(char)*100);
+    strcpy(p,name);
+    strlwr(p);
+    *p=*p-32;
+    return p;
+
+
+}
+int ask()
+{
+    char* p;
+    scanf("%c",p);
+    if(*p==89 || *p==121)
+        return 1;
+    else if(*p==78 || *p==110)
+        return 0;
+    else
+        ask();
+
+
 }
 
 
