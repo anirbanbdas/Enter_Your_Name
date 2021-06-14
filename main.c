@@ -4,16 +4,12 @@
 //Check for prime
 //Number of Possible Permutations
 //Permutation of name(user)
-//Morse code of name(user)
-//Braille code of name(user)
 
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 #include "small_functions.c"
 #include "permutation.c"
-#include "morse.c"
-#include "braille.c"
 int main()
 { int loop_c;
   do
@@ -33,13 +29,7 @@ int main()
 
   printf("Do you want to know the possible permutation of your name(Y/N):");
   if(ask()==1){per(name);}
-
-  printf("Do you want to know the morse code of your name(Y/N):");
-  if(ask()==1){morse(name);}
-
-  printf("Do want to know the braille code of your name(Y/N):");
-  if(ask()==1){braille(name);}
-
+   
   printf("Do you Want to enter another name(Y/N):");
   loop_c=ask();
    }while(loop_c!=0);
